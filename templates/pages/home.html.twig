@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="jumbotron text-center mt-4">
+        <h1>Bienvenue chez Immo Agence</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi dolores earum eligendi ipsa iste magnam quas,
+            quis temporibus. Atque doloribus, fugit ipsa labore minus modi officia placeat tempore voluptas voluptates.</p>
+    </div>
+    <h2>Les derniers biens</h2>
+    <div class="row flex">
+
+        {% for property in properties %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{{ path('property_show', {id: property.slug}) }}">{{ property.title }}</a>
+                        </h5>
+                        <p class="card-text">{{ property.city }} {{ property.postalCode }}</p>
+                        <div class="text-primary" style="font-weight: bold; font-size: 2rem;">{{ property.price | number_format(0, '', ' ') }} €</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

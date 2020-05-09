@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Tous nos biens
+{% endblock %}
+
+{% block body %}
+    <h1>{{  property.title }}</h1>
+    {% for property in properties %}
+        {{ dump(property) }}
+    {% endfor %}
+{% endblock %}
